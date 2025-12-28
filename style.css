@@ -1,7 +1,7 @@
 :root {
   --bg-color: #f0f0f0;
   --clock-border-color: #333;
-  --hand-color: #000;
+  --hand-color: #0f191f;
   --number-color: #333;
   --bg-clock-color: #526f80;
 }
@@ -124,14 +124,3 @@ body {
   height: 16px;
   width: 3px;
 }
-
-/* .dashes {
-  position: absolute;
-  width: 65%;
-  height: 65%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px dotted rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-} */
