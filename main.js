@@ -16,3 +16,17 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
+
+const clock = document.getElementById("clock-container");
+
+for (let i = 1; i <= 60; i++) {
+  const dash = document.createElement("span");
+  dash.classList.add("desh");
+  dash.style.setProperty("--i", i);
+
+  if (i % 5 === 0) {
+    dash.classList.add("big");
+  }
+
+  clock.appendChild(dash);
+}

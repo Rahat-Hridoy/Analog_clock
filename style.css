@@ -22,8 +22,8 @@ body {
 
 #clock-container {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border: 8px solid var(--clock-border-color);
   border-radius: 50%;
   background-color: var(--bg-clock-color);
@@ -34,12 +34,24 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 15px;
-  height: 15px;
-  background-color: var(--hand-color);
+  width: 13px;
+  height: 13px;
+  background-color: red;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+}
+
+.center-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 5px solid var(--hand-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hand {
@@ -71,7 +83,7 @@ body {
   height: 120px;
   background-color: red;
   border-radius: 1px;
-  z-index: 9;
+  z-index: 11;
   transition: none;
 }
 
@@ -87,7 +99,7 @@ body {
 
 .number b {
   transform: rotate(calc(-30deg * var(--d)));
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: #fafcf4;
 }
@@ -95,3 +107,31 @@ body {
 .number.center-digit b {
   font-size: 35px;
 }
+
+.desh {
+  position: absolute;
+  width: 2px;
+  height: 8px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(calc(6deg * var(--i)))
+    translateY(-140px);
+}
+
+.desh.big {
+  height: 16px;
+  width: 3px;
+}
+
+/* .dashes {
+  position: absolute;
+  width: 65%;
+  height: 65%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+} */
