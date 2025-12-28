@@ -1,9 +1,11 @@
 :root {
-  --bg-color: #f0f0f0;
-  --clock-border-color: #333;
-  --hand-color: #0f191f;
-  --number-color: #333;
-  --bg-clock-color: #526f80;
+  --body-bg-color: #f0f0f0;
+  --clock-border-color: #313d3f;
+  --bg-clock-color: #4a5d68;
+  --number-color: #d7faff;
+  --text-color: #d7faff;
+  --hand-color: #181e1f;
+  --second-hand-color: #ff0000;
 }
 
 * {
@@ -17,17 +19,21 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: var(--bg-color);
+  background-color: var(--body-bg-color);
+  background-image: url("assets/cyanView.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #clock-container {
   position: relative;
   width: 500px;
   height: 500px;
-  border: 8px solid var(--clock-border-color);
+  border: 20px solid var(--clock-border-color);
   border-radius: 50%;
   background-color: var(--bg-clock-color);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .center-dot {
@@ -36,7 +42,7 @@ body {
   left: 50%;
   width: 13px;
   height: 13px;
-  background-color: red;
+  background-color: var(--second-hand-color);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -81,7 +87,7 @@ body {
 .second {
   width: 2px;
   height: 120px;
-  background-color: red;
+  background-color: var(--second-hand-color);
   border-radius: 1px;
   z-index: 11;
   transition: none;
@@ -101,7 +107,7 @@ body {
   transform: rotate(calc(-30deg * var(--d)));
   font-size: 24px;
   font-weight: 700;
-  color: #fafcf4;
+  color: var(--number-color);
 }
 
 .number.center-digit b {
@@ -112,7 +118,7 @@ body {
   position: absolute;
   width: 2px;
   height: 8px;
-  background-color: #fff;
+  background-color: var(--number-color);
   top: 50%;
   left: 50%;
   transform-origin: bottom center;
@@ -123,4 +129,65 @@ body {
 .desh.big {
   height: 16px;
   width: 3px;
+}
+
+.brand {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: 4px;
+}
+
+.quartz {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: 2px;
+}
+/* credit */
+.credit {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--bg-clock-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+}
+/* style-icon */
+.style-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-clock-color);
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.style-icon img {
+  width: 24px;
+  height: 24px;
+}
+.style-icon:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.style-icon:active {
+  transform: scale(0.95);
 }
