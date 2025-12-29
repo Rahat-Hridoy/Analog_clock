@@ -1,6 +1,8 @@
 let hourHand = document.getElementById("hour-hand");
 let minuteHand = document.getElementById("minute-hand");
 let secondHand = document.getElementById("second-hand");
+
+// main clock function
 function updateClock() {
   const now = new Date();
   const seconds = now.getSeconds();
@@ -17,6 +19,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
+// Create clock dashes minutes
 const clock = document.getElementById("clock-container");
 
 for (let i = 1; i <= 60; i++) {
@@ -30,3 +33,35 @@ for (let i = 1; i <= 60; i++) {
 
   clock.appendChild(dash);
 }
+
+// theme button functionality
+let currentState = false;
+const styleBtn = document.getElementById("style-button");
+const theme = document.querySelectorAll(".theme");
+let savedTheme = localStorage.getItem("savedTheme");
+
+styleBtn.addEventListener("click", () => {
+  currentState = !currentState;
+  if (currentState) {
+    theme.forEach((item) => {
+      item.style.display = "block";
+      item.style.transition = "transform 0.3s ease-in-out";
+    });
+  } else {
+    theme.forEach((item) => {
+      item.style.display = "none";
+    });
+  }
+});
+
+if (savedTheme) {
+  document.body.setAttribute("data-theme", savedTheme);
+}
+
+theme.forEach((item) => {
+  item.addEventListener("click", () => {
+    const themeColor = item.getAttribute("data-theme");
+    document.body.setAttribute("data-theme", themeColor);
+    localStorage.setItem("savedTheme", themeColor);
+  });
+});
