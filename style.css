@@ -1,10 +1,10 @@
 :root {
-  --body-bg-color: #f0f0f0;
-  --clock-border-color: #313d3f;
-  --bg-clock-color: #4a5d68;
-  --number-color: #d7faff;
-  --text-color: #d7faff;
-  --hand-color: #181e1f;
+  --body-bg-color: #fff;
+  --clock-border-color: #e5ebec;
+  --bg-clock-color: #fff;
+  --number-color: #000;
+  --text-color: #111010;
+  --hand-color: #000;
   --second-hand-color: #ff0000;
 }
 
@@ -115,6 +115,7 @@ body {
   transform: translateX(-50%);
   background-color: var(--hand-color);
   transition: all 0.05s ease-in-out;
+  box-shadow: -4px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hour {
@@ -133,7 +134,7 @@ body {
 
 .second {
   width: 2px;
-  height: 120px;
+  height: 125px;
   background-color: var(--second-hand-color);
   border-radius: 1px;
   z-index: 11;
@@ -276,4 +277,43 @@ body {
 .cyan {
   background-color: #5e828a;
   border: 2px solid #2c3e50;
+}
+
+@media screen and (max-width: 768px) {
+  #clock-container {
+    width: 350px;
+    height: 350px;
+    border: 15px solid var(--clock-border-color);
+  }
+  .number b {
+    font-size: 20px;
+  }
+  .number.center-digit b {
+    font-size: 30px;
+  }
+  .hand.hour {
+    height: 50px;
+  }
+  .hand.minute {
+    height: 75px;
+  }
+  .hand.second {
+    height: 85px;
+  }
+  .desh {
+    transform: translate(-50%, -100%) rotate(calc(6deg * var(--i)))
+      translateY(-90px);
+    height: 6px;
+    width: 1.5px;
+  }
+  .desh.big {
+    height: 12px;
+    width: 2px;
+  }
+  .brand {
+    font-size: 16px;
+  }
+  .quartz {
+    font-size: 10px;
+  }
 }
